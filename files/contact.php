@@ -12,7 +12,7 @@ if(isset($_POST["name"])) {
     $email = $_POST["email"];
     $help = $_POST["help"];
     $budget = $_POST["budget"];
-    $website = $_POST["website"];
+	$exampleRadios = $_POST["exampleRadios"];
 	$body = $_POST["body"];
 
     $mail = new PHPMailer();
@@ -40,7 +40,7 @@ if(isset($_POST["name"])) {
     <br>phonenumber:$phonenumber
     <br>help:$help
     <br>budget:$budget
-    <br>website:$website
+    <br>You have website?:$exampleRadios
     <br>Message:$body<br>";
 
     if($mail->send()){
