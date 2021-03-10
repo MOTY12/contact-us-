@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-if(isset($_POST["send"])) {
+if(isset($_POST["name"])) {
     $name = $_POST["name"];
 	$phonenumber = $_POST["phonenumber"];
     $email = $_POST["email"];
