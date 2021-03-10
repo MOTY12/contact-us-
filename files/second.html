@@ -189,12 +189,66 @@
           console.log(data);
           data = JSON.parse(data);
           if (data.status) {
-            
+            if (data.status == 'success') {
+              $('#myModal').modal('show');
+            } else if (data.status == 'failed') {
+              $('#myModal2').modal('show');
+            }
           }
         });
       });
     });
   </script>
+
+
+
+
+
+
+  //modal html and javascript
+
+
+
+  <!-- Trigger/Open The Modal -->
+  <button id="myBtn">Success</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Your Form was submitted successfully.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  //Faliure
+  <!-- Trigger/Open The Modal -->
+  <button id="myBtn1">Faliure</button>
+
+  <!-- The Modal -->
+  <div id="myModal2" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Pls try again there is a error.</p>
+    </div>
+
+  </div>
+
+
 
 </body>
 
