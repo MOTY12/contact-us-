@@ -9,16 +9,9 @@
   <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="sweetalert2.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script src="sweetalert2.all.min.js"></script>
-<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
-<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-<script src="sweetalert2.min.js"></script>
-
   <title>Remark</title>
 </head>
 <style>
@@ -89,21 +82,13 @@
               <form id="myForm" action="contact.php" method="POST">
                 <div class="info">
                   <p>Tell us about your business</p>
-                  <a href="/index.html">
-                    <img src="../img/remark_m_mark_iceblue 1.svg" style="width: 30px; height: 30px" />
-                  </a>
+                  <img src="../img/remark_m_mark_iceblue 1.svg" style="width: 30px; height: 30px" />
                 </div>
 
                 <div class="info_text">
                   <input type="text" name="name" id="name" placeholder="Name" style="width: 100%;" required/>
-                  <div class="row">
-                    <div class="col-md-5">
-                      <input class="phon" name="phonenumber" id="phonenumber" type="text" style="width: 100%;" placeholder="Phone number" required/>
-                    </div>
-                    <div class="col-md-7">
-                      <input type="email" name="email" id="email" placeholder="Email" style="width: 100%;" required/>
-                    </div>
-                  </div>
+                  <input class="phon" name="phonenumber" id="phonenumber" type="text" placeholder="Phone number" style="width: 37%; margin-right: 4%" required/>
+                  <input type="email" name="email" id="email" placeholder="Email" style="width: 58%" required/>
 
                   <select class="form-control form-control-sm" name="help" id="help" required>
                     <option style="color: rgba(140, 164, 175, 0.5)" value="" disabled selected hidden >
@@ -122,7 +107,7 @@
                     </option>
                     <option value="Small select">Small select</option>
                   </select>
-                  <!-- <div style=" display: flex; align-items: flex-start; justify-content: space-between; margin: 10px auto; " class="do">
+                  <div style=" display: flex; align-items: flex-start; justify-content: space-between; margin: 10px auto; " class="do">
                     <h3>Do you have a website?</h3>
                     <div style="width: 50%" class="check-box">
                       <div class="check">
@@ -133,27 +118,6 @@
                         <label class="form-check-label mr-2" for="exampleRadios">No</label>
                         <input type="radio" name="exampleRadios" id="exampleRadios" value="option1" />
                       </div>
-                    </div>
-                  </div> -->
-                  <div class="row">
-                    <div class="col-md-6 text-left">
-                      <h3>Do you have a website? <span>(Optional)</span></h3> 
-                    </div>
-                    <!-- <div class="col-md-6">
-                      <div class="do">
-                        <div class="check">
-                          <label class="form-check-label mr-2" for="exampleRadios"> Yes </label>
-                          <input type="radio" name="exampleRadios" id="exampleRadios" value="yes" />
-                        </div>
-                        <div class="check">
-                          <label class="form-check-label mr-2" for="exampleRadios">No</label>
-                          <input type="radio" name="exampleRadios" id="exampleRadios" value="no"/>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <div class="col-md-12 mb-2">
-                      <input type="website" name="website" id="website" placeholder="Website link" style="width: 100%;"/>
                     </div>
                   </div>
                   <textarea name="body" id="body" cols="30" rows="10" placeholder="Your message" required></textarea>
@@ -213,11 +177,9 @@
         var phonenumber = $("#phonenumber").val();
         var help = $("#help");
         var budget = $("#budget");
-        var website = $("#website");
+        var exampleRadios = $("exampleRadios");
         var body = $("#body");
         var form_data = $(this).serialize();
-
-        document.getElementById('send').innerHTML = '...Loadding'
 
         $.ajax({
           type: "POST",
@@ -227,82 +189,12 @@
           console.log(data);
           data = JSON.parse(data);
           if (data.status) {
-            if (data.status == 'success') {
-              echo 'success';
-              //$('#myModal').modal('show');
-            } else if (data.status == 'failed') {
-              //$('#myModal2').modal('show');
-              echo 'failed';
-            }
+            
           }
         });
       });
     });
-
-    //  let input = document.getElementById('website')
-    //  let radio = document.getElementById('exampleRadios')
-    //  let radio1 = document.getElementById('exampleRadios1')
-      //if (data.status == 'success') {
- // document.getElementById('send').innerHTML = 'Submit'
- //  window.location.href = 'third.html';
-//  alert("succ");
-//} else if (data.status == 'failed') {
- // document.getElementById('send').innerHTML = 'Submit'
- // Swal.fire({
- //   icon: 'error',
- //   title: 'Oops...',
- //   text: 'Something went wrong!',
- // })
-//}
   </script>
-
-
-
-
-
-
- 
-
-  <!-- Trigger/Open The Modal -->
-  <button id="myBtn"></button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-body">
-          <p>Try again..</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Trigger/Open The Modal 
-  <button id="myBtn1">Faliure</button>-->
-
-  <!-- The Modal 
-  <div id="myModal2" class="modal">-->
-
-    <!-- Modal content 
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Pls try again there is a error.</p>
-    </div>
-
-  </div>
--->
-
-
 
 </body>
 
